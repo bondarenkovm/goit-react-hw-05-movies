@@ -12,7 +12,6 @@ function MoviesDetails() {
     movie;
   const year = new Date(release_date).getFullYear();
 
-  // console.log(movie);
   useEffect(() => {
     async function fetch() {
       try {

@@ -15,6 +15,7 @@ export const Item = styled.li`
   background-color: #f5f4fa;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 300px;
 `;
 export const Img = styled.img`
   width: 300px;

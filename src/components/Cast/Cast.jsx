@@ -2,12 +2,10 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieCast } from 'services/fetchMoviesAPI';
 import { List, Img, Item } from './Cast.styled';
-// console.log(fetchMovieCast);
+
 function Cast() {
   const { id } = useParams();
   const [results, setResults] = useState([]);
-
-  // console.log(results);
 
   useEffect(() => {
     async function fetch() {

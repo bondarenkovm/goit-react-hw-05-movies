@@ -11,7 +11,7 @@ function Movies() {
 
   useEffect(() => {
     const query = searchParams.get('moviesName');
-    // console.log(query);
+
     async function fetch() {
       try {
         const filmsName = await fetchMoviesByName(query);

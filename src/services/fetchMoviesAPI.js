@@ -25,4 +25,9 @@ export async function fetchMovieCast(id) {
   return response.data.cast;
 }
 
+export async function fetchMovieReviews(id) {
+  const URL = `${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}`;
+  const response = await axios.get(URL);
+  return response.data.results;
+}
 // export { fetchMoviesTrending, fetchMoviesByName };
