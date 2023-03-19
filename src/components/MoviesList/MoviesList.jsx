@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
-import { List, Item, Img, Title } from './MoviesList.styled';
+import { List, Item, Img, Title, MovieLink } from './MoviesList.styled';
 
-function MoviesList({ movies }) {
+function MoviesList({ movies, link }) {
   return (
     <List>
       {movies.map(({ id, title, poster_path }) => {
         return (
           <Item key={id}>
-            <div>
+            <MovieLink to={`${link ?? ''}${id}`}>
               <Img
                 loading="lazy"
                 src={
@@ -17,9 +17,9 @@ function MoviesList({ movies }) {
                 }
                 alt={title}
               />
-            </div>
 
-            <Title>{title}</Title>
+              <Title>{title}</Title>
+            </MovieLink>
           </Item>
         );
       })}
@@ -31,10 +31,11 @@ MoviesList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      title: PropTypes.string,
-      poster_path: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string,
     }).isRequired
   ).isRequired,
+  link: PropTypes.string,
 };
 
 export default MoviesList;

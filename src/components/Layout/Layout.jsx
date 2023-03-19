@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Container, Header, List, Link } from './Layout.styled';
+import { Toaster } from 'react-hot-toast';
+
 function Layout() {
   return (
     <>
@@ -23,6 +25,11 @@ function Layout() {
           <Outlet />
         </Container>
       </main>
+      <Toaster
+        toastOptions={{
+          duration: 1500,
+        }}
+      />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchMovies } from 'services/fetchMoviesAPI';
+import { fetchMoviesTrending } from 'services/fetchMoviesAPI';
 
 import MoviesList from 'components/MoviesList/MoviesList';
 
@@ -9,7 +9,7 @@ function Home() {
   useEffect(() => {
     async function fetch() {
       try {
-        const movies = await fetchMovies();
+        const movies = await fetchMoviesTrending();
         setMovies([...movies]);
       } catch (error) {
         console.log(error);
@@ -20,7 +20,7 @@ function Home() {
   return (
     <>
       <h1>Trending for today</h1>
-      <MoviesList movies={movies} />
+      <MoviesList movies={movies} link="movies/" />
     </>
   );
 }

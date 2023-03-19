@@ -2,8 +2,8 @@ import Cast from 'components/Cast/Cast';
 import Layout from 'components/Layout/Layout';
 import Reviews from 'components/Reviews/Reviews';
 import Home from 'pages/Home/Home';
-import Movies from 'pages/Movies';
-import MoviesDetails from 'pages/MoviesDetails';
+import Movies from 'pages/Movies/Movies';
+import MoviesDetails from 'pages/MoviesDetails/MoviesDetails';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
