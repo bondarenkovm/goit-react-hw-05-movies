@@ -42,7 +42,7 @@ function Movies() {
   return (
     <div>
       <Searchbar formSubmit={formSubmitHandler} />
-      <MoviesList movies={results} />
+      <MoviesList movies={results} link="" />
     </div>
   );
 }

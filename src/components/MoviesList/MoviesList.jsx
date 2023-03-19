@@ -7,7 +7,7 @@ function MoviesList({ movies, link }) {
       {movies.map(({ id, title, poster_path }) => {
         return (
           <Item key={id}>
-            <MovieLink to={`${link ?? ''}${id}`}>
+            <MovieLink to={`${link}${id}`}>
               <Img
                 loading="lazy"
                 src={

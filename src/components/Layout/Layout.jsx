@@ -1,6 +1,8 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import { Container, Header, List, Link } from './Layout.styled';
 import { Toaster } from 'react-hot-toast';
+import { TailSpin } from 'react-loader-spinner';
 
 function Layout() {
   return (
@@ -22,7 +24,22 @@ function Layout() {
       </Header>
       <main>
         <Container>
-          <Outlet />
+          <Suspense
+            fallback={
+              <TailSpin
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass="loader"
+                visible={true}
+              />
+            }
+          >
+            <Outlet />
+          </Suspense>
         </Container>
       </main>
       <Toaster

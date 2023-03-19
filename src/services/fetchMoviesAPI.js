@@ -14,4 +14,10 @@ export async function fetchMoviesByName(query) {
   return response.data.results;
 }
 
+export async function fetchMovieById(id) {
+  const URL = `${BASE_URL}movie/${id}?api_key=${API_KEY}`;
+  const response = await axios.get(URL);
+  return response.data;
+}
+
 // export { fetchMoviesTrending, fetchMoviesByName };
