@@ -6,18 +6,19 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import { toast } from 'react-hot-toast';
 
 function Movies() {
-  const [results, setResults] = useState([]);
+  const [movies, setmovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const query = searchParams.get('moviesName') ?? '';
   useEffect(() => {
-    const query = searchParams.get('moviesName');
+    // const query = searchParams.get('moviesName');
 
     async function fetch() {
       try {
         const filmsName = await fetchMoviesByName(query);
 
         if (filmsName.length) {
-          setResults([...filmsName]);
+          setmovies([...filmsName]);
         } else {
           toast.error('No movies found!', {
             style: {
@@ -33,16 +34,19 @@ function Movies() {
     if (query) {
       fetch();
     }
-  }, [searchParams]);
+  }, [query]);
 
   function formSubmitHandler(moviesName) {
+    if (moviesName === '') {
+      return setSearchParams({});
+    }
     setSearchParams({ moviesName });
   }
 
   return (
     <div>
       <Searchbar formSubmit={formSubmitHandler} />
-      <MoviesList movies={results} link="" />
+      <MoviesList movies={movies} link="" />
     </div>
   );
 }

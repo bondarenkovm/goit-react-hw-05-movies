@@ -6,13 +6,14 @@ import { Form, Button, Input } from './Searchbar.styled';
 
 const Searchbar = ({ formSubmit }) => {
   const handleSubmit = ({ moviesName }, { resetForm }) => {
-    if (moviesName.trim() === '') {
+    if (moviesName === '') {
       toast.error('Enter something!', {
         style: {
           background: '#ca1616',
           color: '#fff',
         },
       });
+      formSubmit(moviesName);
       resetForm();
       return;
     }
